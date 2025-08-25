@@ -19,9 +19,10 @@ const __dirname = dirname(__filename);
 const app = express();
 const server = http.createServer(app);
 const corsOptions = {
-  origin: 'http://localhost:5173', // match your frontend dev URL
-  methods: ['GET', 'POST'],
-  credentials: true
+  origin: "*",   // ✅ allow all origins
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: false   // ⚠️ must be false when origin: "*" is used
 };
 
 app.use(cors(corsOptions));
@@ -29,6 +30,9 @@ app.use(cors(corsOptions));
 const io = new Server(server, {
   cors: corsOptions
 });
+
+
+
 
 
 // Middlewares
