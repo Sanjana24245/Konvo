@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { FaPlus, FaSearch, FaTimes, FaUser } from "react-icons/fa";
 import axios from "axios";
 import logo from "../../public/konvo.png";
+import { api } from "../api"; 
 export default function Navbar({ onUserSelect }) {
   const { user } = useAuth();
   const [showSearch, setShowSearch] = useState(false);

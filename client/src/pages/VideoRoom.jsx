@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { api } from "../api"; 
 const VideoRoom = () => {
   let { roomID } = useParams();
 
