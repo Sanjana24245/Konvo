@@ -60,7 +60,7 @@ const Register = () => {
 
     setOtpLoading(true);
     try {
-      const response = await axios.post("/auth/send-otp", {
+      const response = await api.post("/auth/send-otp", {
         email,
       });
   
@@ -83,7 +83,7 @@ const Register = () => {
 
     setVerifyLoading(true);
     try {
-      const response = await axios.post("/auth/verify-otp", {
+      const response = await api.post("/auth/verify-otp", {
         email: formData.email,
         otp: otp,
         otpToken: otpToken,
@@ -117,7 +117,7 @@ const Register = () => {
 
     setIsLoading(true);
     try {
-      await axios.post("/auth/register", {
+      await api.post("/auth/register", {
         username,
         email,
         password,

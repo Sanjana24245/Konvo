@@ -11,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { api } from "../api"; 
 // Socket connection
-const socket = io('http://localhost:5000');
+const socket = io('https://konvo-nhhs.onrender.com');
 
 export default function Chat() {
   const { user } = useAuth();
@@ -126,7 +126,7 @@ export default function Chat() {
 
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`/chat/messages/${activeUser._id}`, {
+        const response = await api.get(`/chat/messages/${activeUser._id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -260,7 +260,7 @@ export default function Chat() {
         },
       };
 
-      const response = await axios.post('http://localhost:5000/api/upload', formData, config);
+      const response = await api.post('/upload', formData, config);
       const fileUrl = response.data.url;
 
       const fileMessage = {
@@ -345,7 +345,7 @@ export default function Chat() {
   const fetchChatUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('/api/chat/users', {
+      const response = await api.get('/chat/users', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
