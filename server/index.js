@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
 import { dirname } from 'path';
-import roomRoutes from './routes/roomRoutes.js';
+
 import uploadRoute from './routes/upload.js';
 import { socketHandler } from './socket.js';
 import authRoutes from './routes/auth.js';
@@ -39,7 +39,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/chat',chatRoutes);
 app.use('/api', uploadRoute);
-app.use('/api', roomRoutes);
+
 // Use your Zego routes
 // Serve static files from /uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
