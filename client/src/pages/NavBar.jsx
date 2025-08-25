@@ -17,7 +17,7 @@ export default function Navbar({ onUserSelect }) {
         return;
       }
       try {
-        const res = await axios.get(`/api/auth/search-users?q=${searchTerm}`);
+        const res = await axios.get(`/auth/search-users?q=${searchTerm}`);
         setSuggestions(res.data.filter((u) => u.username !== user.username));
       } catch (err) {
         console.error("Error fetching suggestions", err);

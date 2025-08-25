@@ -126,7 +126,7 @@ export default function Chat() {
 
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`/api/chat/messages/${activeUser._id}`, {
+        const response = await axios.get(`/chat/messages/${activeUser._id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
