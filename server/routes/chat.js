@@ -1,7 +1,7 @@
 import express from 'express';
 import Message from '../models/Message.js';
 import User from '../models/User.js';
-import Room from '../models/Room.js';
+
 import { authenticate } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
